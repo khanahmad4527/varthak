@@ -44,17 +44,23 @@ Provide instructions on how to use the application or any additional information
   - `hashedPassword` (string, required): User's hashed password.
   - `roles` (array of strings, required): User's roles. Possible values: "CREATOR", "VIEWER", "VIEW_ALL".
 
+
+
  **Example:**
  POST /user/auth/register
 Content-Type: application/json
 
+<pre>
+```json
 {
-"firstname": "John",
-"lastname": "Doe",
-"email": "johndoe@example.com",
-"hashedPassword": "password123",
-"roles": ["CREATOR"]
+  "firstname": "John",
+  "lastname": "Doe",
+  "email": "johndoe@example.com",
+  "hashedPassword": "password123",
+  "roles": ["CREATOR"]
 }
+```
+</pre>
 
 Response:
 Status: 200 OK
