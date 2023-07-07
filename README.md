@@ -50,8 +50,9 @@ Provide instructions on how to use the application or any additional information
  POST /user/auth/register
 Content-Type: application/json
 
-<pre>
-```json
+<div class="copyable">
+  <pre>
+    <code>
 {
   "firstname": "John",
   "lastname": "Doe",
@@ -59,8 +60,10 @@ Content-Type: application/json
   "hashedPassword": "password123",
   "roles": ["CREATOR"]
 }
-```
-</pre>
+    </code>
+  </pre>
+</div>
+
 
 Response:
 Status: 200 OK
