@@ -41,7 +41,7 @@ Provide instructions on how to use the application or any additional information
   - `firstname` (string, required): User's first name.
   - `lastname` (string, required): User's last name.
   - `email` (string, required): User's email address.
-  - `hashedPassword` (string, required): User's hashed password.
+  - `password` (string, required): User's hashed password.
   - `roles` (array of strings, required): User's roles. Possible values: "CREATOR", "VIEWER", "VIEW_ALL".
 
 
@@ -55,7 +55,7 @@ Provide instructions on how to use the application or any additional information
   "firstname": "John",
   "lastname": "Doe",
   "email": "johndoe@example.com",
-  "hashedPassword": "password123",
+  "password": "password123",
   "roles": ["CREATOR"]
 }
     </code>
