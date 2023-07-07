@@ -47,8 +47,6 @@ Provide instructions on how to use the application or any additional information
 
 
  **Example:**
- POST /user/auth/register
-Content-Type: application/json
 
 <div class="copyable">
   <pre>
@@ -64,7 +62,6 @@ Content-Type: application/json
   </pre>
 </div>
 
-
 Response:
 Status: 200 OK
 Content-Type: application/json
@@ -79,7 +76,29 @@ Content-Type: application/json
 - Description: Authenticate and login a user.
 - Request body:
   - `email` (string, required): User's email address.
-  - `hashedPassword` (string, required): User's hashed password.
+  - `password` (string, required): User's hashed password.
+
+
+ **Example:**
+
+<div class="copyable">
+  <pre>
+    <code>
+{
+"email": "johndoe@example.com",
+"password": "password123"
+}
+    </code>
+  </pre>
+</div>
+
+Response:
+Status: 200 OK
+Content-Type: application/json
+{
+"message": "Login successful",
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
 
 ### Book
 
@@ -99,12 +118,80 @@ Content-Type: application/json
   - `quantity` (number, required): Book quantity (default: 0).
   - `createdBy` (string, required): User who created the book.
 
+ **Example:**
+
+<div class="copyable">
+  <pre>
+    <code>
+{
+"title": "The Great Gatsby",
+"author": "F. Scott Fitzgerald",
+"publicationYear": 1925,
+"description": "A novel about the American Dream",
+"genres": ["Fiction", "Classic"],
+"price": 19.99,
+"quantity": 10,
+"createdBy": "64a6c4f7f16891f7e4a4faed"
+}
+    </code>
+  </pre>
+</div>
+
+Response:
+Status: 200 OK
+Content-Type: application/json
+{
+"message": "Book created successfully"
+}
+
 #### View Books
 
 - Method: `GET`
 - Endpoint: `/books`
 - Description: Retrieve a list of books.
 - Middleware: `viewValidator` (validate request data)
+
+ **Example:**
+
+<div class="copyable">
+  <pre>
+    <code>
+GET /books
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+    </code>
+  </pre>
+</div>
+
+Response:
+Status: 200 OK
+Content-Type: application/json
+
+{
+"books": [
+{
+"title": "The Great Gatsby",
+"author": "F. Scott Fitzgerald",
+"publicationYear": 1925,
+"description": "A novel about the American Dream",
+"genres": ["Fiction", "Classic"],
+"price": 19.99,
+"quantity": 10,
+"createdBy": "64a6c4f7f16891f7e4a4faed"
+},
+{
+"title": "To Kill a Mockingbird",
+"author": "Harper Lee",
+"publicationYear": 1960,
+"description": "A story of racial injustice in the Deep South",
+"genres": ["Fiction", "Classic"],
+"price": 15.99,
+"quantity": 8,
+"createdBy": "64a6c4f7f16891f7e4a4faed"
+},
+...
+]
+}
 
 ## Models
 
