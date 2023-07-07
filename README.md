@@ -148,6 +148,8 @@ Content-Type: application/json
 
 - Method: `GET`
 - Endpoint: `/books`
+- Endpoint: `/books?new=1`
+- Endpoint: `/books?old=1`
 - Description: Retrieve a list of books.
 - Middleware: `viewValidator` (validate request data)
 
